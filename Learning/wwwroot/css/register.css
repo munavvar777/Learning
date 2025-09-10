@@ -1,0 +1,46 @@
+﻿/* Container with glassmorphism */
+.register-container {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 1rem;
+    max-width: 450px;
+    width: 100%;
+    animation: slideUp 0.6s ease-out;
+}
+
+    /* Heading underline */
+    .register-container h2::after {
+        content: '';
+        display: block;
+        margin: 0.5rem auto 0;
+        width: 50px;
+        height: 3px;
+        background: linear-gradient(90deg, #667eea, #764ba2);
+        border-radius: 2px;
+    }
+
+    /* Subtle hover effect */
+    .register-container:hover {
+        transform: translateY(-3px);
+        transition: transform 0.3s ease;
+    }
+
+/* Animation */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.alert-danger {
+    font-size: 0.9rem;
+    border-radius: 8px;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+}

@@ -1,0 +1,26 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Learning.Data
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@{
+    if (SignInManager.IsSignedIn(User))
+    {
+        if (User.IsInRole("Admin"))
+        {
+            Layout = "_AdminLayout";
+        }
+        else if (User.IsInRole("Teacher"))
+        {
+            Layout = "_TeacherLayout";
+        }
+        else
+        {
+            Layout = "_StudentLayout";
+        }
+    }
+    else
+    {
+        Layout = "_Layout";
+    }
+}
