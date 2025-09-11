@@ -7,15 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="Views\Shared\_AdminLayout.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
     <EditorConfigFiles Remove="D:\MVC\Learning\Learning\.editorconfig" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Include="Views\Shared\_AdminLayout.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,6 +16,7 @@
 
   <ItemGroup>
     <PackageReference Include="EntityFramework" Version="6.5.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.3.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.19" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.19">
       <PrivateAssets>all</PrivateAssets>
@@ -39,7 +32,12 @@
   <ItemGroup>
     <ProjectReference Include="..\Learning.Core\Learning.Core.csproj" />
     <ProjectReference Include="..\Learning.Data\Learning.DataContext.csproj" />
+    <ProjectReference Include="..\Learning.Helper\Learning.Helper.csproj" />
     <ProjectReference Include="..\Learning.Repositories\Learning.Repositories.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\Admin\" />
   </ItemGroup>
 
 </Project>
