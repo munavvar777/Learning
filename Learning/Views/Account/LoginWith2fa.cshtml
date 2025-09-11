@@ -1,0 +1,14 @@
+﻿@model Learning.Core.ViewModels.LoginWith2faViewModel
+<form asp-action="LoginWith2fa" method="post">
+    <h2>Two-Factor Authentication</h2>
+    <div>
+        <label asp-for="TwoFactorCode"></label>
+        <input asp-for="TwoFactorCode" />
+        <span asp-validation-for="TwoFactorCode"></span>
+    </div>
+    <div>
+        <input asp-for="RememberMachine" type="checkbox" />
+        <label asp-for="RememberMachine">Remember this machine?</label>
+    </div>
+    <button type="submit">Verify</button>
+</form>
