@@ -1,5 +1,9 @@
 using Learning.Data;
 using Learning.DataContext.SeedData;
+using Learning.Repositories.Repositories;
+using Learning.Repositories.Repositories.IRepositories;
+using Learning.Service;
+using Learning.Service.IService;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -7,6 +11,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<IStudentService, StudentService>();
+builder.Services.AddScoped<IStudentRepositories, StudentRepositories>();
+builder.Services.AddScoped<IDepartmentsService, DepartmentService>();
+builder.Services.AddScoped<IDepartmentsRepositories, DepartmentsRepositories>();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
@@ -14,6 +22,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultTokenProviders();
+
 
 var app = builder.Build();
 
